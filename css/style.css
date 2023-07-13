@@ -1,0 +1,199 @@
+/* :root {
+
+} */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+  box-shadow: 0 0 10px #ddd;
+  background-image: linear-gradient(45deg, #4776e6 0%, #8e54e9 100%);
+}
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background-color: #fff;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+@media (width <= 768px) {
+  .todo-app {
+    max-width: 350px;
+  }
+}
+.todo-app h2 {
+  color: #0087ff;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.todo-app h2 img {
+  width: 45px;
+}
+.todo-app .inputs {
+  display: flex;
+  justify-content: space-between;
+  background-color: #edeef0;
+  padding-left: 20px;
+  margin-bottom: 25px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+.todo-app .inputs #input-box {
+  border: none;
+  outline: none;
+  flex: 1;
+  background-color: transparent;
+  padding: 10px;
+}
+.todo-app .inputs #input-box::placeholder {
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+}
+.todo-app .inputs #input-box:focus::placeholder {
+  opacity: 0;
+}
+.todo-app .inputs #submit {
+  border: none;
+  outline: none;
+  background-color: #ff5945;
+  color: #fff;
+  font-size: 16px;
+  padding: 16px 40px;
+  cursor: pointer;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -ms-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+}
+.todo-app .inputs #submit:hover {
+  background-color: #f44336;
+}
+@media (width <= 768px) {
+  .todo-app .inputs {
+    justify-content: center;
+    margin-left: -15px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  .todo-app .inputs #submit {
+    padding: 5px 15px;
+    font-size: 14px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+}
+.todo-app ul{
+  text-align: center;
+}
+.todo-app ul li {
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.todo-app ul li:before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 28px;
+  height: 28px;
+  background-image: url(../images/unchecked.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.todo-app ul li.checked:before {
+  background-image: url(../images/checked.png);
+}
+.todo-app ul li.checked {
+  color: #777;
+  text-decoration: line-through;
+}
+.todo-app ul li span {
+  color: #fff;
+  background-color: #ff5945;
+  padding: 5px 10px;
+  position: absolute;
+  right: 0;
+  top: 8px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+}
+.todo-app ul li span:hover {
+  background-color: #f44336;
+}
+.todo-app ul button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  color: #fff;
+  background-color: #ff5945;
+  border-radius: 30px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+.todo-app ul button:hover{
+background-color: #f44336;
+}

@@ -14,6 +14,11 @@ AddBtn.onclick = () => {
   if (input.value !== "") {
     addTasksToArray(input.value);
     input.value = ""; // empty input field
+    // Create Remove All Button
+    let removeAllBtn = document.createElement("button");
+    removeAllBtn.className = "removeAll";
+    removeAllBtn.textContent = "Remove All";
+    TaskList.appendChild(removeAllBtn);
   }
 };
 //  Update & Delete
@@ -31,6 +36,7 @@ TaskList.addEventListener("click", (e) => {
   //delete all Elements from Page
   if (e.target.classList.contains("removeAll")) {
     TaskList.innerHTML = "";
+    ArrayOfTasks = []
     window.localStorage.removeItem("tasks");
   }
 });
@@ -53,11 +59,7 @@ function addTasksToArray(taskTxt) {
 function addElementsToPageFrom(ArrayOfTasks) {
   // Empty Task List
   TaskList.innerHTML = ``;
-  // Create Remove All Button
-  let removeAllBtn = document.createElement("button")
-  removeAllBtn.className = "removeAll";
-  removeAllBtn.textContent = "Remove All"
-  TaskList.appendChild(removeAllBtn)
+
   // Looping on Array of Tasks
   ArrayOfTasks.forEach((task) => {
     // Create Li

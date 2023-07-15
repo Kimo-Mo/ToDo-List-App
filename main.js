@@ -28,6 +28,7 @@ TaskList.addEventListener("click", (e) => {
     toggleStatusTaskWith(e.target.getAttribute("data-id"));
     e.target.classList.toggle("checked");
   }
+  //delete all Elements from Page
   if (e.target.classList.contains("removeAll")) {
     TaskList.innerHTML = "";
     window.localStorage.removeItem("tasks");
@@ -51,7 +52,12 @@ function addTasksToArray(taskTxt) {
 
 function addElementsToPageFrom(ArrayOfTasks) {
   // Empty Task List
-  TaskList.innerHTML = `<button class="removeAll">Remove All</button>`;
+  TaskList.innerHTML = ``;
+  // Create Remove All Button
+  let removeAllBtn = document.createElement("button")
+  removeAllBtn.className = "removeAll";
+  removeAllBtn.textContent = "Remove All"
+  TaskList.appendChild(removeAllBtn)
   // Looping on Array of Tasks
   ArrayOfTasks.forEach((task) => {
     // Create Li
@@ -81,7 +87,6 @@ function getDataFromLocalStorage() {
     addElementsToPageFrom(tasks);
   }
 }
-
 
 function deleteTaskWith(taskId) {
   ArrayOfTasks = ArrayOfTasks.filter((task) => task.id != taskId);

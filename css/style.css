@@ -33,7 +33,7 @@ a {
   max-width: 540px;
   background-color: #fff;
   margin: 100px auto 20px;
-  padding: 40px 30px 70px;
+  padding: 40px 30px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -43,7 +43,7 @@ a {
 @media (width <= 425px) {
   .todo-app {
     max-width: 300px;
-    padding: 20px 15px 35px;
+    padding: 20px 15px;
   }
 }
 .todo-app h2 {
@@ -192,10 +192,23 @@ a {
   padding: 10px 15px;
   color: #fff;
   background-color: #ff5945;
-  border-radius: 30px;
   margin: 10px auto;
   cursor: pointer;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
 .todo-app ul button:hover{
 background-color: #f44336;
+}
+@media (width <= 768px) {
+.todo-app ul button{
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
 }

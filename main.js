@@ -14,11 +14,6 @@ AddBtn.onclick = () => {
   if (input.value !== "") {
     addTasksToArray(input.value);
     input.value = ""; // empty input field
-    // Create Remove All Button
-    let removeAllBtn = document.createElement("button");
-    removeAllBtn.className = "removeAll";
-    removeAllBtn.textContent = "Remove All";
-    TaskList.appendChild(removeAllBtn);
   }
 };
 //  Update & Delete
@@ -28,6 +23,9 @@ TaskList.addEventListener("click", (e) => {
     deleteTaskWith(e.target.parentElement.getAttribute("data-id"));
     // delete element from page
     e.target.parentElement.remove();
+    if (ArrayOfTasks.length == 0) {
+      document.querySelector(".removeAll").remove();
+    }
   }
   if (e.target.classList.contains("task")) {
     toggleStatusTaskWith(e.target.getAttribute("data-id"));
@@ -36,7 +34,7 @@ TaskList.addEventListener("click", (e) => {
   //delete all Elements from Page
   if (e.target.classList.contains("removeAll")) {
     TaskList.innerHTML = "";
-    ArrayOfTasks = []
+    ArrayOfTasks = [];
     window.localStorage.removeItem("tasks");
   }
 });
@@ -54,8 +52,14 @@ function addTasksToArray(taskTxt) {
   addElementsToPageFrom(ArrayOfTasks);
   // Add Tasks To Local Storage
   addDataToLocalStorageFrom(ArrayOfTasks);
+  // Create or update the "Remove All" button in local storage
+  updateRemoveAllButtonInLocalStorage();
 }
 
+function updateRemoveAllButtonInLocalStorage() {
+  const removeAllBtnExists = document.querySelector(".removeAll") !== null;
+  window.localStorage.setItem("removeAllButton", removeAllBtnExists);
+}
 function addElementsToPageFrom(ArrayOfTasks) {
   // Empty Task List
   TaskList.innerHTML = ``;
@@ -78,6 +82,13 @@ function addElementsToPageFrom(ArrayOfTasks) {
     // Add Li to Task List
     TaskList.appendChild(li);
   });
+  if (ArrayOfTasks.length > 0) {
+    // Create Remove All Button
+    let removeAllBtn = document.createElement("button");
+    removeAllBtn.className = "removeAll";
+    removeAllBtn.textContent = "Remove All";
+    TaskList.appendChild(removeAllBtn);
+  }
 }
 function addDataToLocalStorageFrom(ArrayOfTasks) {
   window.localStorage.setItem("tasks", JSON.stringify(ArrayOfTasks));

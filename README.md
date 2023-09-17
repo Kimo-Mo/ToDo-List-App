@@ -8,4 +8,3 @@ Local Storage is used that will store the task list or To Do list in your web br
 So that if you close and restart the browser then also it will display your saved To-Do List
 
 ## Live Demo : [Click here](https://kimo-mo.github.io/ToDo-List-App/)
-### https://kimo-mo.github.io/ToDo-List-App/
